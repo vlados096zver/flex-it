@@ -1,0 +1,25 @@
+
+<div class="contact__wrap">
+  <div class="contact__item">
+    <app-input-line [submitted]="isSubmitted" [name]="'Name'" [control]="c_name"></app-input-line>
+  </div>
+  <div class="contact__item">
+    <app-input-line [submitted]="isSubmitted" [name]="'Email'" [control]="c_email"></app-input-line>
+  </div>
+</div>
+
+<div class="contact__item">
+  <app-input-line [submitted]="isSubmitted" [name]="'Gender (male or female)'" [control]="c_gender"></app-input-line>
+</div>
+
+
+<div class="contact__item">
+  <app-input-line [submitted]="isSubmitted" [name]="'Status (active or inactive)'" [control]="c_status"></app-input-line>
+</div>
+
+
+<div class="contact__item">
+  <app-input-textarea [submitted]="isSubmitted" [name]="'Your Message'" [control]="c_message"></app-input-textarea>
+</div>
+
+<div class="btn" (click)="sendContact()">Send Your Message</div>

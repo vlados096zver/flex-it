@@ -1,0 +1,7 @@
+<div class="faq__box" [class.isOpen]="item.isOpen" >
+  <p class="faq__title" (click)="openDetails(item)">{{item.user_id}}</p>
+  <div class="faq__text">
+    <p>{{item.title}}</p>
+  </div>
+</div>
+

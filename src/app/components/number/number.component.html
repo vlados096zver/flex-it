@@ -1,0 +1,11 @@
+<div class="number__image">
+  <i [class]="item.img"></i>
+</div>
+<p class="number__count" >
+  <span appNumber
+        class="numbers{{index}}"
+        [count]="item.count"
+        [elemClass]="'numbers' + index"> {{item.count}}"
+  </span>+
+</p>
+<p class="number__title">{{item.title}}</p>

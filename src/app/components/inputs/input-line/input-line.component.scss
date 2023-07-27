@@ -1,0 +1,40 @@
+
+.input {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  padding: 16px 0 16px 25px;
+  background-color: transparent;
+  border: 1px solid rgba(var(--clr-white-rgb), 0.25);
+  font-family: var(--ltr-main-font-f);
+  &:focus {
+    border-color: rgba(var(--clr-main-rgb), 1);
+  }
+  &.error {
+    border: 1px solid red;
+  }
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.label {
+    display: inline-block;
+    font-size: 1rem;
+    text-transform: capitalize;
+    margin-bottom: 6px;
+    transition: all 0.3s ease-in-out 0s;
+    font-weight: 600;
+  span {
+    color: var(--clr-danger);
+  }
+}
+
+p.error {
+  font-size: 0.85rem;
+  color: var(--clr-danger);
+}

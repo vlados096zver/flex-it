@@ -1,0 +1,30 @@
+@import 'variables';
+
+:host {
+  display: block;
+}
+
+.contact {
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 35px;
+    margin: 0 -12px;
+    @include media(sm) {
+      margin: 0;
+    }
+    .contact__item {
+      width: calc(100% / 2 - 24px);
+      margin: 0 12px;
+      margin-bottom: 20px;
+      @include media(sm) {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &__item {
+    margin-bottom: 20px;
+  }
+}

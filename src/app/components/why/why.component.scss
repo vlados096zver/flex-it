@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  position: relative;
+  padding-left: 95px;
+  margin-bottom: 48px;
+  &:after {
+    position: absolute;
+    counter-increment: number;
+    content: "0" counter(number) ". ";
+    top: 0;
+    left: 0;
+    font-size: 48px;
+    line-height: 0.8;
+    color: var(--clr-main);
+    font-weight: 700;
+  }
+}
+
+.why {
+  &__title {
+    font-size: 24px;
+    text-transform: capitalize;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.75;
+  }
+}

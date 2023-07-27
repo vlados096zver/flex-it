@@ -1,0 +1,102 @@
+@import 'variables';
+
+:host {
+  position: relative;
+  display: block;
+  width: calc(100% / 3 - 24px);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(var(--clr-main-rgb), 0.35);
+  box-shadow: 0px 0px 10px 0px rgba(var(--clr-dark-blue-rgb), 0.1);
+  margin: 0 12px;
+  margin-bottom: 24px;
+  @include media(mdx) {
+    width: calc(100% / 2 - 24px);
+  }
+  @include media(sm) {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+  &:before {
+    content: "";
+    border-radius: inherit;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: auto;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    background-color: rgba(var(--clr-main-rgb), 1);
+    z-index: -3;
+    transition: transform 0.5s ease 0s;
+  }
+  &:hover {
+    &:before {
+      left: 0;
+      right: auto;
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .service__elem,
+    .service__more,
+    .service__title,
+    .service__text {
+      color: var(--clr-white);
+    }
+    .service__more svg {
+      fill: var(--clr-white);
+    }
+  }
+}
+
+.service {
+  &__elem {
+    display: block;
+    line-height: 3rem;
+    font-size: 3rem;
+    color: var(--clr-main);
+    transform-origin: center;
+    margin-bottom: 15px;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  &__title {
+    font-size: 24px;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  &__text {
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.85;
+    margin-bottom: 24px;
+  }
+  &__more {
+    cursor: pointer;
+    text-transform: capitalize;
+    color: var(--clr-main);
+    font-weight: 600;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out 0s;
+    span {
+      flex-shrink: 0;
+    }
+    svg {
+      display: flex;
+      fill: var(--clr-main);
+      max-width: 24px;
+      width: 100%;
+      margin-left: 8px;
+      transition: transform 0.3s ease-in-out 0s;
+    }
+    &:hover svg {
+      transform: translateX(5px);
+    }
+  }
+}

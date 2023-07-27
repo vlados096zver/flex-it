@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 40px;
+  margin-bottom: 0px;
+}
+
+.navbar {
+  &__item {
+    position: relative;
+    margin: 5px;
+    padding: 0.5rem 0rem;
+    margin-right: 1.25rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    z-index: 1;
+    cursor: pointer;
+    padding-left: 15px;
+    transition: all 0.3s ease-in-out 0s;
+    &:after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: transparent;
+      border-radius: 50%;
+      transition: all 0.3s ease-in-out 0s;
+    }
+    &:hover {
+      color: var(--clr-main);
+      &:after {
+        background: var(--clr-main);
+      }
+    }
+    &--active {
+      color: var(--clr-main);
+      &:after {
+        background: var(--clr-main);
+      }
+    }
+  }
+}

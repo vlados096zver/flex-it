@@ -1,0 +1,13 @@
+<div class="plan__block" [class.most]="item.most">
+  <div class="plan__image">
+    <i [class]="item.img"></i>
+  </div>
+  <p *ngIf="item.most" class="plan__most">most popular</p>
+  <p class="plan__count"><sup class="plan__symbol">$</sup>{{item.count}}</p>
+  <p class="plan__title">{{item.title}}</p>
+  <p class="plan__project">Per project</p>
+  <div class="plan__text">
+    <p>{{item.text}}</p>
+  </div>
+  <div class="plan__btn">Select plan</div>
+</div>

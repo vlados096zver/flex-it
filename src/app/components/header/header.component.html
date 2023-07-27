@@ -1,0 +1,55 @@
+<header class="header" id="header" appScroll (scroll)="onScrollEvent()">
+  <div class="container">
+    <div class="header__wrap">
+      <div class="header__logo">
+        <div class="header__light-logo">
+          <img src="assets/img/logo-light.png" alt="logo">
+        </div>
+        <div class="header__dark-logo">
+          <img src="assets/img/logo-dark.png" alt="logo">
+        </div>
+      </div>
+      <ul class="header__list" [class.open]="isShowMenu">
+        <ng-container *ngFor="let item of menu; let index = index">
+          <li class="header__dropdown" [class.mark]="item.submenu" >
+            <a (click)="openLink($event, item); scroll(item.key)" class="header__box" [class.active]="activePointMenu == index" [class.open]="item.isOpen">{{item.point}}</a>
+            <ul class="header__submenu" *ngIf="item.submenu">
+              <ng-container *ngFor="let elem of item.submenu">
+                <li><a href="">{{elem.link}}</a></li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+      <button type="button" class="header__burger" (click)="toggleMenu()" [class.open]="isShowMenu">
+        <svg *ngIf="!isShowMenu" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
+          <path d="M1 1H22.3333M1 9H22.3333M1 17H22.3333" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg *ngIf="isShowMenu" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+          <path d="M11.4695 10.0041L19.7595 1.71409C19.9234 1.52279 20.009 1.27671 19.9993 1.02504C19.9895 0.773362 19.8852 0.534623 19.7071 0.356529C19.529 0.178434 19.2903 0.0741013 19.0386 0.0643802C18.7869 0.054659 18.5408 0.140266 18.3495 0.304092L10.0595 8.59409L1.76954 0.294092C1.58124 0.105788 1.32585 0 1.05954 0C0.793242 0 0.537847 0.105788 0.349543 0.294092C0.16124 0.482395 0.0554518 0.73779 0.0554518 1.00409C0.0554518 1.27039 0.16124 1.52579 0.349543 1.71409L8.64954 10.0041L0.349543 18.2941C0.244862 18.3837 0.159841 18.4941 0.0998181 18.6181C0.0397948 18.7422 0.00606468 18.8773 0.000745191 19.015C-0.0045743 19.1528 0.0186312 19.2901 0.0689057 19.4184C0.11918 19.5467 0.195439 19.6633 0.292893 19.7607C0.390348 19.8582 0.506895 19.9345 0.63522 19.9847C0.763546 20.035 0.900878 20.0582 1.0386 20.0529C1.17632 20.0476 1.31145 20.0138 1.43551 19.9538C1.55958 19.8938 1.6699 19.8088 1.75954 19.7041L10.0595 11.4141L18.3495 19.7041C18.5408 19.8679 18.7869 19.9535 19.0386 19.9438C19.2903 19.9341 19.529 19.8298 19.7071 19.6517C19.8852 19.4736 19.9895 19.2348 19.9993 18.9831C20.009 18.7315 19.9234 18.4854 19.7595 18.2941L11.4695 10.0041Z" fill="#fff"/>
+        </svg>
+      </button>
+      <div class="header__user">
+        <button class="header__search" (click)="showSearch()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M495 466.2L377.2 348.4c29.2-35.6 46.8-81.2 46.8-130.9C424 103.5 331.5 11 217.5 11 103.4 11 11 103.5 11 217.5S103.4 424 217.5 424c49.7 0 95.2-17.5 130.8-46.7L466.1 495c8 8 20.9 8 28.9 0 8-7.9 8-20.9 0-28.8zm-277.5-83.3C126.2 382.9 52 308.7 52 217.5S126.2 52 217.5 52C308.7 52 383 126.3 383 217.5s-74.3 165.4-165.5 165.4z"/>
+          </svg>
+        </button>
+        <button (click)="changeTheme()" class="header__theme">
+          <div class="header__image-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+            </svg>
+          </div>
+          <div class="header__image-dark">
+            <svg mlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<app-search [class.active]="isShowPopupSearch" (clickChange)="showSearch()"></app-search>

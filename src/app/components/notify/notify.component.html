@@ -1,0 +1,71 @@
+<div class="notification__module__box">
+  <div class="notification__module__container">
+    <div class="notification__module__scroll">
+      <ng-container *ngFor="let item of notifyService.notify">
+        <div class="notification__module__item__box" id="{{item.id}}--box"
+             [class.hidden]="item?.hidden"
+             [class.removing]="item?.clear"
+        >
+          <div class="notification__module__item" id="{{item.id}}--item"
+               [class.hidden]="item?.hidden"
+               [class.clear]="item?.clear"
+          >
+            <div
+              class="notification__module__item__border"
+              [class.loading]="item.type !== NOTIFY_TYPE.ERROR && item.type !== NOTIFY_TYPE.SUCCESS && item.type !== NOTIFY_TYPE.INFO"
+              [class.info]="item?.type === NOTIFY_TYPE.INFO"
+              [class.error]="item?.type === NOTIFY_TYPE.ERROR"
+              [class.success]="item?.type === NOTIFY_TYPE.SUCCESS"
+            ></div>
+            <div class="notification__module__item__icon__box">
+              <ng-container *ngIf="item.type !== NOTIFY_TYPE.ERROR && item.type !== NOTIFY_TYPE.SUCCESS && item.type !== NOTIFY_TYPE.INFO">
+                <div class="notification__module__item__icon">
+                  <app-spinner-small></app-spinner-small>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="item.type === NOTIFY_TYPE.ERROR">
+                <div class="icon__item error">
+                  <div class="icon__item__text">
+                    !
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="item.type === NOTIFY_TYPE.SUCCESS">
+                <div class="icon__item success">
+                  <svg width="123" height="102" viewBox="0 0 123 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#fff" clip-path="url(#clip0_401_2)">
+                      <path d="M4.42991 63.63C1.56091 60.875 0.0779147 57.21 0.00291465 53.52C-0.0710853 49.831 1.26391 46.108 4.01791 43.239C6.76991 40.372 10.4349 38.888 14.1239 38.814C17.8149 38.738 21.5359 40.069 24.4069 42.826L49.1939 66.677L98.5429 3.989L100.311 5.338L98.5409 3.983C98.6819 3.8 98.8419 3.644 99.0199 3.517C101.956 0.973998 105.641 -0.174002 109.243 0.0219976V0.0179976L109.419 0.0339976C113.042 0.273998 116.581 1.884 119.194 4.8C121.852 7.765 123.057 11.531 122.856 15.212H122.86L122.844 15.388C122.608 18.946 121.053 22.423 118.235 25.02L59.0109 97.11L59.0149 97.114C58.9039 97.255 58.7789 97.376 58.6429 97.482C55.8699 99.917 52.3679 101.111 48.8859 101.051C45.3749 100.99 41.8709 99.655 39.1449 97.035L4.42991 63.63Z" fill="#fff"/>
+                    </g>
+                    <defs>
+                      <clipPath fill="#fff" id="clip0_401_2">
+                        <rect width="122.877" height="101.052" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="item.type === NOTIFY_TYPE.INFO">
+                <div class="icon__item text">
+                  <div class="icon__item__text">
+                    i
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="notification__module__item__content">
+              <!--              <div class="notification__module__item__content__title">-->
+              <!--                {{item.title}}-->
+              <!--              </div>-->
+              <div class="notification__module__item__content__text" [innerHTML]="item.message | safeHtml"></div>
+            </div>
+            <div class="notification__module__item__close" (click)="hiddenNotify(item.id)">
+              <svg width="20" height="20" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.24414 14.7754C0.782227 15.248 0.760742 16.0859 1.25488 16.5693C1.74902 17.0527 2.57617 17.042 3.04883 16.5801L9.15039 10.4785L15.2412 16.5801C15.7246 17.0527 16.5518 17.0635 17.0352 16.5693C17.5186 16.0752 17.5293 15.2588 17.0459 14.7754L10.9443 8.67383L17.0459 2.58301C17.5293 2.09961 17.5293 1.27246 17.0352 0.789062C16.541 0.305664 15.7246 0.305664 15.2412 0.77832L9.15039 6.87988L3.04883 0.77832C2.57617 0.316406 1.73828 0.294922 1.25488 0.789062C0.771484 1.2832 0.782227 2.11035 1.24414 2.57227L7.3457 8.67383L1.24414 14.7754Z" fill="#333333"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="input__box">
+  <label for="" class="label">{{name}} <span>*</span></label>
+  <p class="error" *ngIf="submitted && control.errors && control.errors['required']">Required</p>
+  <p class="error" *ngIf="submitted && control.errors && control.errors['pattern']">Email format is wrong</p>
+</div>
+<input [class.error]="submitted && control.errors && control.errors['required']
+        || submitted && control.errors && control.errors['pattern']"
+       type="text"
+       [formControl]="control" class="input">

@@ -1,0 +1,8 @@
+<div class="area__box">
+  <label for="" class="label">{{name}} <span>*</span></label>
+  <p class="error" *ngIf="submitted && control.errors && control.errors['required']">Required</p>
+</div>
+<textarea type="text"
+          [class.error]="submitted && control.errors && control.errors['required']"
+          [formControl]="control" class="area">
+</textarea>

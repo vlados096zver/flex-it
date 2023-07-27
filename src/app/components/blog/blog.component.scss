@@ -1,0 +1,136 @@
+@import 'variables';
+
+:host {
+  display: block;
+  width: calc(100% / 3 - 24px);
+  overflow: hidden;
+  border-radius: 0.25rem;
+  background-color: rgba(var(--clr-main-rgb), 0.15);
+  margin: 0 12px;
+  @include media(mdx) {
+    width: calc(100% / 2 - 24px);
+    margin-bottom: 24px;
+  }
+  @include media(sm) {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+  &:hover {
+    .blog__image img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.blog {
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  &__type,
+  &__fio {
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    opacity: 0.75;
+    transition: color 0.3s ease 0s;
+    svg {
+      display: block;
+      fill: var(--clr-main);
+      margin-right: 8px;
+    }
+    &:hover {
+      color: var(--clr-main);
+    }
+  }
+  &__type {
+    position: relative;
+    &:after {
+      content: "|";
+      margin: 0 0.75rem;
+      position: absolute;
+      left: 100%;
+      opacity: 0.75;
+    }
+  }
+  &__image {
+    max-height: 400px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem 0.25rem 0 0;
+    position: relative;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      vertical-align: middle;
+      transition: all 0.5s ease-in-out 0s;
+    }
+  }
+  &__content {
+    padding: 1rem;
+  }
+  &__date {
+    position: absolute;
+    color: var(--clr-white);
+    background: rgba(var(--clr-dark-blue-rgb), 0.75);
+    padding: 0.25rem 1.25rem;
+    top: 0.75rem;
+    left: 0.75rem;
+    right: auto;
+    font-weight: 400;
+    text-align: center;
+    z-index: 30;
+    border-radius: 5rem;
+  }
+  &__title {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    transition: color 0.3s ease 0s;
+    &:hover {
+      color: var(--clr-main);
+    }
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.75;
+    margin-bottom: 16px;
+  }
+  &__more {
+    cursor: pointer;
+    text-transform: capitalize;
+    color: var(--clr-main);
+    font-weight: 600;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out 0s;
+    span {
+      flex-shrink: 0;
+    }
+    svg {
+      display: flex;
+      fill: var(--clr-main);
+      max-width: 24px;
+      width: 100%;
+      margin-left: 8px;
+      transition: transform 0.3s ease-in-out 0s;
+    }
+    &:hover svg {
+      transform: translateX(5px);
+    }
+  }
+}

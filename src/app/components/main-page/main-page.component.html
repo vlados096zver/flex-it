@@ -1,0 +1,9 @@
+
+
+<ng-container *ngIf="data$.length > 0; else loader">
+  <app-main-content [data$]="data$"></app-main-content>
+</ng-container>
+
+<ng-template #loader>
+  <app-loading></app-loading>
+</ng-template>

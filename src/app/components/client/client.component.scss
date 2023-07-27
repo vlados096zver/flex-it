@@ -1,0 +1,14 @@
+.client__image {
+  cursor: pointer;
+  img {
+    display: block;
+    max-width: 100%;
+    border-radius: 0.25rem;
+    filter: grayscale(1);
+  }
+  &:hover {
+    img {
+      filter: grayscale(0);
+    }
+  }
+}
